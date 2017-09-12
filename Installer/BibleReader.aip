@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="13.4" version="13.4" Modules="professional" RootPath="." Language="en" Id="{38A9FAFF-A2BD-4EFD-B58C-1CF33220A137}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiJavaComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="Manufacturer" Value="bartekmi"/>
+    <ROW Property="ProductCode" Value="1033:{A8AED940-4857-4E68-B702-2F8BE815FFF0} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="BibleReader"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{8949FB79-3913-43F4-A128-13E6D500A6C5}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="AnyCPU_Debug:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="AnyCPU_Debug:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="AnyCPU_Debug:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="AnyCPU_Debug:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="AnyCPU_Debug:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="AnyCPU_Debug:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="AnyCPU_Debug:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="AnyCPU_Debug:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Conjugation_Dir" Directory_Parent="Data_Dir" DefaultDir="CONJUG~1|Conjugation"/>
+    <ROW Directory="Data_Dir" Directory_Parent="APPDIR" DefaultDir="Data"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="LeningradCodex_Dir" Directory_Parent="OpenScriptures_Dir" DefaultDir="LENING~1|Leningrad Codex"/>
+    <ROW Directory="OpenScriptures_Dir" Directory_Parent="Data_Dir" DefaultDir="OPENSC~1|OpenScriptures"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="BibleReader.exe" ComponentId="{A35CC8DD-6200-4D49-88AB-411DE82F815D}" Directory_="APPDIR" Attributes="0" KeyPath="BibleReader.exe"/>
+    <ROW Component="BibleReader.exe.config" ComponentId="{35BB0554-CA53-47D5-919A-B9E6CADB5D02}" Directory_="APPDIR" Attributes="0" KeyPath="BibleReader.exe.config" Type="0"/>
+    <ROW Component="BibleReader.vshost.exe" ComponentId="{3FD5911A-88A3-4AF5-A47E-30FB6A5E361F}" Directory_="APPDIR" Attributes="0" KeyPath="BibleReader.vshost.exe"/>
+    <ROW Component="BrownDriverBriggs_OpenScriptures.xml" ComponentId="{2460BDA8-5D80-4E41-B622-C8D87900917A}" Directory_="OpenScriptures_Dir" Attributes="0" KeyPath="BrownDriverBriggs_OpenScriptures.xml" Type="0"/>
+    <ROW Component="Chr.xml" ComponentId="{18A39AFB-ACED-4047-91D2-F016E7EA3FA9}" Directory_="LeningradCodex_Dir" Attributes="0" KeyPath="Chr.xml" Type="0"/>
+    <ROW Component="Conjugation" ComponentId="{B695AD5F-1D73-41E0-BDFB-2859B43C2657}" Directory_="Conjugation_Dir" Attributes="0"/>
+    <ROW Component="KjvUSFX.EBible.org.xml" ComponentId="{77581739-A306-4501-A349-DB2EB681ACDF}" Directory_="Data_Dir" Attributes="0" KeyPath="KjvUSFX.EBible.org.xml" Type="0"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{47680801-5B36-4052-956C-BD623760D6A7}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="NonUI.dll" ComponentId="{B7D21B5E-34EA-47E1-9AF5-6E1CFFFAD49F}" Directory_="APPDIR" Attributes="0" KeyPath="NonUI.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{3AF977AF-804C-4FD9-8B06-480ADCB91E59}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{1F79B0FB-4DAC-4FDC-9549-1D2BA65F5E0C}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="Telerik.Windows.Documents.Core.dll" ComponentId="{03887C82-27B5-424D-A005-1C3926A92B34}" Directory_="APPDIR" Attributes="0" KeyPath="Telerik.Windows.Documents.Core.dll"/>
+    <ROW Component="Telerik.Windows.Documents.Spreadsheet.Fo" ComponentId="{E2BC6D5A-2B90-4A51-8586-FD5524B8DAED}" Directory_="APPDIR" Attributes="0" KeyPath="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll"/>
+    <ROW Component="Telerik.Windows.Documents.Spreadsheet.dl" ComponentId="{C1F4C4FA-17B8-4E95-BE6F-374016114E0E}" Directory_="APPDIR" Attributes="0" KeyPath="Telerik.Windows.Documents.Spreadsheet.dll"/>
+    <ROW Component="Telerik.Windows.Zip.dll" ComponentId="{89D30534-4FEC-45EF-89BC-B4F91F50EE29}" Directory_="APPDIR" Attributes="0" KeyPath="Telerik.Windows.Zip.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="BibleReader.exe BibleReader.exe.config BibleReader.vshost.exe BrownDriverBriggs_OpenScriptures.xml Chr.xml Conjugation KjvUSFX.EBible.org.xml Newtonsoft.Json.dll NonUI.dll ProductInformation SHORTCUTDIR Telerik.Windows.Documents.Core.dll Telerik.Windows.Documents.Spreadsheet.Fo Telerik.Windows.Documents.Spreadsheet.dl Telerik.Windows.Zip.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Amos.xml" Component_="Chr.xml" FileName="Amos.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Amos.xml" SelfReg="false" NextFile="Dan.xml"/>
+    <ROW File="BibleReader.exe" Component_="BibleReader.exe" FileName="BIBLER~1.EXE|BibleReader.exe" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.exe" SelfReg="false" NextFile="BibleReader.exe.config" DigSign="true"/>
+    <ROW File="BibleReader.exe.config" Component_="BibleReader.exe.config" FileName="BIBLER~1.CON|BibleReader.exe.config" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.exe.config" SelfReg="false" NextFile="BibleReader.pdb"/>
+    <ROW File="BibleReader.pdb" Component_="BibleReader.exe" FileName="BIBLER~1.PDB|BibleReader.pdb" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.pdb" SelfReg="false" NextFile="BibleReader.vshost.exe"/>
+    <ROW File="BibleReader.vshost.exe" Component_="BibleReader.vshost.exe" FileName="BIBLER~2.EXE|BibleReader.vshost.exe" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.vshost.exe" SelfReg="false" NextFile="BibleReader.vshost.exe.config" DigSign="true"/>
+    <ROW File="BibleReader.vshost.exe.config" Component_="BibleReader.exe.config" FileName="BIBLER~2.CON|BibleReader.vshost.exe.config" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.vshost.exe.config" SelfReg="false" NextFile="BibleReader.vshost.exe.manifest"/>
+    <ROW File="BibleReader.vshost.exe.manifest" Component_="BibleReader.exe.config" FileName="BIBLER~1.MAN|BibleReader.vshost.exe.manifest" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReader.vshost.exe.manifest" SelfReg="false" NextFile="BibleReaderState.json"/>
+    <ROW File="BibleReaderState.json" Component_="BibleReader.exe.config" FileName="BIBLER~1.JSO|BibleReaderState.json" Attributes="0" SourcePath="..\BibleReader\bin\Debug\BibleReaderState.json" SelfReg="false" NextFile="Newtonsoft.Json.dll"/>
+    <ROW File="BrownDriverBriggs_OpenScriptures.xml" Component_="BrownDriverBriggs_OpenScriptures.xml" FileName="BROWND~1.XML|BrownDriverBriggs_OpenScriptures.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\BrownDriverBriggs_OpenScriptures.xml" SelfReg="false" NextFile="HebrewStrong_OpenScriptures.xml"/>
+    <ROW File="Chr.xml" Component_="Chr.xml" FileName="1Chr.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\1Chr.xml" SelfReg="false" NextFile="Kgs.xml"/>
+    <ROW File="Chr.xml_2" Component_="Chr.xml" FileName="2Chr.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\2Chr.xml" SelfReg="false" NextFile="Kgs.xml_2"/>
+    <ROW File="Dan.xml" Component_="Chr.xml" FileName="Dan.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Dan.xml" SelfReg="false" NextFile="Deut.xml"/>
+    <ROW File="Deut.xml" Component_="Chr.xml" FileName="Deut.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Deut.xml" SelfReg="false" NextFile="Eccl.xml"/>
+    <ROW File="Eccl.xml" Component_="Chr.xml" FileName="Eccl.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Eccl.xml" SelfReg="false" NextFile="Esth.xml"/>
+    <ROW File="Esth.xml" Component_="Chr.xml" FileName="Esth.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Esth.xml" SelfReg="false" NextFile="Exod.xml"/>
+    <ROW File="Exod.xml" Component_="Chr.xml" FileName="Exod.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Exod.xml" SelfReg="false" NextFile="Ezek.xml"/>
+    <ROW File="Ezek.xml" Component_="Chr.xml" FileName="Ezek.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Ezek.xml" SelfReg="false" NextFile="Ezra.xml"/>
+    <ROW File="Ezra.xml" Component_="Chr.xml" FileName="Ezra.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Ezra.xml" SelfReg="false" NextFile="Gen.xml"/>
+    <ROW File="Gen.xml" Component_="Chr.xml" FileName="Gen.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Gen.xml" SelfReg="false" NextFile="Hab.xml"/>
+    <ROW File="Hab.xml" Component_="Chr.xml" FileName="Hab.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Hab.xml" SelfReg="false" NextFile="Hag.xml"/>
+    <ROW File="Hag.xml" Component_="Chr.xml" FileName="Hag.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Hag.xml" SelfReg="false" NextFile="Hos.xml"/>
+    <ROW File="HebrewStrong_OpenScriptures.xml" Component_="BrownDriverBriggs_OpenScriptures.xml" FileName="HEBREW~1.XML|HebrewStrong_OpenScriptures.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\HebrewStrong_OpenScriptures.xml" SelfReg="false" NextFile="Chr.xml"/>
+    <ROW File="Hos.xml" Component_="Chr.xml" FileName="Hos.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Hos.xml" SelfReg="false" NextFile="Isa.xml"/>
+    <ROW File="Isa.xml" Component_="Chr.xml" FileName="Isa.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Isa.xml" SelfReg="false" NextFile="Jer.xml"/>
+    <ROW File="Jer.xml" Component_="Chr.xml" FileName="Jer.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Jer.xml" SelfReg="false" NextFile="Job.xml"/>
+    <ROW File="Job.xml" Component_="Chr.xml" FileName="Job.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Job.xml" SelfReg="false" NextFile="Joel.xml"/>
+    <ROW File="Joel.xml" Component_="Chr.xml" FileName="Joel.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Joel.xml" SelfReg="false" NextFile="Jonah.xml"/>
+    <ROW File="Jonah.xml" Component_="Chr.xml" FileName="Jonah.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Jonah.xml" SelfReg="false" NextFile="Josh.xml"/>
+    <ROW File="Josh.xml" Component_="Chr.xml" FileName="Josh.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Josh.xml" SelfReg="false" NextFile="Judg.xml"/>
+    <ROW File="Judg.xml" Component_="Chr.xml" FileName="Judg.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Judg.xml" SelfReg="false" NextFile="Lam.xml"/>
+    <ROW File="Kgs.xml" Component_="Chr.xml" FileName="1Kgs.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\1Kgs.xml" SelfReg="false" NextFile="Sam.xml"/>
+    <ROW File="Kgs.xml_2" Component_="Chr.xml" FileName="2Kgs.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\2Kgs.xml" SelfReg="false" NextFile="Sam.xml_2"/>
+    <ROW File="KjvUSFX.EBible.org.xml" Component_="KjvUSFX.EBible.org.xml" FileName="KJVUSF~1.XML|KjvUSFX.EBible.org.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\KjvUSFX.EBible.org.xml" SelfReg="false" NextFile="BrownDriverBriggs_OpenScriptures.xml"/>
+    <ROW File="Lam.xml" Component_="Chr.xml" FileName="Lam.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Lam.xml" SelfReg="false" NextFile="Lev.xml"/>
+    <ROW File="Lev.xml" Component_="Chr.xml" FileName="Lev.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Lev.xml" SelfReg="false" NextFile="Mal.xml"/>
+    <ROW File="LexicalIndex_OpenScriptures.xml" Component_="BrownDriverBriggs_OpenScriptures.xml" FileName="LEXICA~1.XML|LexicalIndex_OpenScriptures.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\LexicalIndex_OpenScriptures.xml" SelfReg="false" NextFile="StrongHebrew.xml"/>
+    <ROW File="Mal.xml" Component_="Chr.xml" FileName="Mal.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Mal.xml" SelfReg="false" NextFile="Mic.xml"/>
+    <ROW File="Mic.xml" Component_="Chr.xml" FileName="Mic.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Mic.xml" SelfReg="false" NextFile="Nah.xml"/>
+    <ROW File="Nah.xml" Component_="Chr.xml" FileName="Nah.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Nah.xml" SelfReg="false" NextFile="Neh.xml"/>
+    <ROW File="Neh.xml" Component_="Chr.xml" FileName="Neh.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Neh.xml" SelfReg="false" NextFile="Num.xml"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Newtonsoft.Json.dll" SelfReg="false" NextFile="Newtonsoft.Json.xml"/>
+    <ROW File="Newtonsoft.Json.xml" Component_="BibleReader.exe.config" FileName="NEWTON~1.XML|Newtonsoft.Json.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Newtonsoft.Json.xml" SelfReg="false" NextFile="NonUI.dll"/>
+    <ROW File="NonUI.dll" Component_="NonUI.dll" FileName="NONUI~1.DLL|Non UI.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Non UI.dll" SelfReg="false" NextFile="NonUI.pdb"/>
+    <ROW File="NonUI.pdb" Component_="NonUI.dll" FileName="NONUI~1.PDB|Non UI.pdb" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Non UI.pdb" SelfReg="false" NextFile="Telerik.Windows.Documents.Core.dll"/>
+    <ROW File="Num.xml" Component_="Chr.xml" FileName="Num.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Num.xml" SelfReg="false" NextFile="Obad.xml"/>
+    <ROW File="Obad.xml" Component_="Chr.xml" FileName="Obad.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Obad.xml" SelfReg="false" NextFile="Prov.xml"/>
+    <ROW File="Prov.xml" Component_="Chr.xml" FileName="Prov.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Prov.xml" SelfReg="false" NextFile="Ps.xml"/>
+    <ROW File="Ps.xml" Component_="Chr.xml" FileName="Ps.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Ps.xml" SelfReg="false" NextFile="Ruth.xml"/>
+    <ROW File="Ruth.xml" Component_="Chr.xml" FileName="Ruth.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Ruth.xml" SelfReg="false" NextFile="Song.xml"/>
+    <ROW File="Sam.xml" Component_="Chr.xml" FileName="1Sam.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\1Sam.xml" SelfReg="false" NextFile="Chr.xml_2"/>
+    <ROW File="Sam.xml_2" Component_="Chr.xml" FileName="2Sam.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\2Sam.xml" SelfReg="false" NextFile="Amos.xml"/>
+    <ROW File="Song.xml" Component_="Chr.xml" FileName="Song.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Song.xml" SelfReg="false" NextFile="VerseMap.xml"/>
+    <ROW File="StrongHebrew.xml" Component_="KjvUSFX.EBible.org.xml" FileName="STRONG~1.XML|StrongHebrew.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\StrongHebrew.xml" SelfReg="false"/>
+    <ROW File="Telerik.Windows.Documents.Core.dll" Component_="Telerik.Windows.Documents.Core.dll" FileName="TELERI~1.DLL|Telerik.Windows.Documents.Core.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Core.dll" SelfReg="false" NextFile="Telerik.Windows.Documents.Core.xml"/>
+    <ROW File="Telerik.Windows.Documents.Core.xml" Component_="BibleReader.exe.config" FileName="TELERI~1.XML|Telerik.Windows.Documents.Core.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Core.xml" SelfReg="false" NextFile="Telerik.Windows.Documents.Spreadsheet.dll"/>
+    <ROW File="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" Component_="Telerik.Windows.Documents.Spreadsheet.Fo" FileName="TELERI~3.DLL|Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" SelfReg="false" NextFile="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml"/>
+    <ROW File="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml" Component_="BibleReader.exe.config" FileName="TELERI~2.XML|Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml" SelfReg="false" NextFile="Telerik.Windows.Documents.Spreadsheet.xml"/>
+    <ROW File="Telerik.Windows.Documents.Spreadsheet.dll" Component_="Telerik.Windows.Documents.Spreadsheet.dl" FileName="TELERI~2.DLL|Telerik.Windows.Documents.Spreadsheet.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Spreadsheet.dll" SelfReg="false" NextFile="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll"/>
+    <ROW File="Telerik.Windows.Documents.Spreadsheet.xml" Component_="BibleReader.exe.config" FileName="TELERI~3.XML|Telerik.Windows.Documents.Spreadsheet.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Documents.Spreadsheet.xml" SelfReg="false" NextFile="Telerik.Windows.Zip.dll"/>
+    <ROW File="Telerik.Windows.Zip.dll" Component_="Telerik.Windows.Zip.dll" FileName="TELERI~4.DLL|Telerik.Windows.Zip.dll" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Zip.dll" SelfReg="false" NextFile="Telerik.Windows.Zip.xml"/>
+    <ROW File="Telerik.Windows.Zip.xml" Component_="BibleReader.exe.config" FileName="TELERI~4.XML|Telerik.Windows.Zip.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Telerik.Windows.Zip.xml" SelfReg="false" NextFile="KjvUSFX.EBible.org.xml"/>
+    <ROW File="VerseMap.xml" Component_="Chr.xml" FileName="VerseMap.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\VerseMap.xml" SelfReg="false" NextFile="Zech.xml"/>
+    <ROW File="Zech.xml" Component_="Chr.xml" FileName="Zech.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Zech.xml" SelfReg="false" NextFile="Zeph.xml"/>
+    <ROW File="Zeph.xml" Component_="Chr.xml" FileName="Zeph.xml" Attributes="0" SourcePath="..\BibleReader\bin\Debug\Data\OpenScriptures\Leningrad Codex\Zeph.xml" SelfReg="false" NextFile="LexicalIndex_OpenScriptures.xml"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="AnyCPU_Debug" BuildName="AnyCPU_Debug" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+    <ROW Directory_="Conjugation_Dir" Component_="Conjugation" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#BibleReader.exe]"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="AnyCPU_Debug"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="AnyCPU_Debug"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="AnyCPU_Debug"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="AnyCPU_Debug"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="BibleReader.exe" Directory_="SHORTCUTDIR" Name="BIBLER~1.EXE|BibleReader.exe" Component_="BibleReader.exe" Target="[#BibleReader.exe]" Description="BibleReader.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="BibleReader.exe_1" Directory_="DesktopFolder" Name="BIBLER~1.EXE|BibleReader.exe" Component_="BibleReader.exe" Target="[#BibleReader.exe]" Description="BibleReader.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>

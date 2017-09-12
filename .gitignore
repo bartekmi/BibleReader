@@ -243,3 +243,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Installer/Setup Files
+/Installer/BibleReader_TempFilePayNoAttentionToMe-cache
+/Installer/BibleReader_TempFilePayNoAttentionToMe.aip

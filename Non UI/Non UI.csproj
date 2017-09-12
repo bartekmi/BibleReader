@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9969D3FC-03F6-4516-8297-75E384E1CF45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BibleReader</RootNamespace>
+    <AssemblyName>Non UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\BibleReader\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\External Libraries\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\External Libraries\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\External Libraries\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\External Libraries\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppStaticsNonUI.cs" />
+    <Compile Include="DataSource\apis\EsvApi.cs" />
+    <Compile Include="DataSource\BibleSource.cs" />
+    <Compile Include="DataSource\BibleSourceKjvUsfx.cs" />
+    <Compile Include="DataSource\Conjugations.cs" />
+    <Compile Include="DataSource\LexiconSource.cs" />
+    <Compile Include="DataSource\LexiconSourceStrongs.cs" />
+    <Compile Include="DataSource\os\BibleSourceOsWlc.cs" />
+    <Compile Include="DataSource\Source.cs" />
+    <Compile Include="grammar\conjugation\VerbConjugator.cs" />
+    <Compile Include="grammar\Syllabifier.cs" />
+    <Compile Include="grammar\Transliterator.cs" />
+    <Compile Include="helpers\NotificationObject.cs" />
+    <Compile Include="model\ApplicationState.cs" />
+    <Compile Include="model\Bible.cs" />
+    <Compile Include="model\Book.cs" />
+    <Compile Include="model\Chapter.cs" />
+    <Compile Include="model\conjugation\AdjectiveConjugation.cs" />
+    <Compile Include="model\conjugation\ConjunctionConjugation.cs" />
+    <Compile Include="model\conjugation\AdverbConjugation.cs" />
+    <Compile Include="model\conjugation\ConjugationBase.cs" />
+    <Compile Include="model\conjugation\NounConjugation.cs" />
+    <Compile Include="model\conjugation\ParticleConjugation.cs" />
+    <Compile Include="model\conjugation\PrepositionConjugation.cs" />
+    <Compile Include="model\conjugation\PronounConjugation.cs" />
+    <Compile Include="model\conjugation\SuffixConjugation.cs" />
+    <Compile Include="model\conjugation\VerbConjugation.cs" />
+    <Compile Include="model\Element.cs" />
+    <Compile Include="model\ElementPunctuation.cs" />
+    <Compile Include="model\ElementWord.cs" />
+    <Compile Include="model\enums\AdjectiveType.cs" />
+    <Compile Include="model\enums\Gender.cs" />
+    <Compile Include="model\enums\Language.cs" />
+    <Compile Include="model\enums\NounType.cs" />
+    <Compile Include="model\enums\Number.cs" />
+    <Compile Include="model\enums\ParticleType.cs" />
+    <Compile Include="model\enums\PartOfSpeech.cs" />
+    <Compile Include="model\enums\Person.cs" />
+    <Compile Include="model\enums\PrepositionType.cs" />
+    <Compile Include="model\enums\PronounType.cs" />
+    <Compile Include="model\enums\State.cs" />
+    <Compile Include="model\enums\SuffixType.cs" />
+    <Compile Include="model\enums\VerbConjugationFamily.cs" />
+    <Compile Include="model\enums\VerbForm.cs" />
+    <Compile Include="model\enums\VerbStem.cs" />
+    <Compile Include="model\HLetterPointCombo.cs" />
+    <Compile Include="model\Letter.cs" />
+    <Compile Include="model\Lexicon.cs" />
+    <Compile Include="model\LexiconWordDefinition.cs" />
+    <Compile Include="model\Syllable.cs" />
+    <Compile Include="model\Verse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\EnumUtils.cs" />
+    <Compile Include="utils\HebrewTextConversionUtils.cs" />
+    <Compile Include="utils\ResourceUtils.cs" />
+    <Compile Include="utils\RestApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\KjvUSFX.EBible.org.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\BrownDriverBriggs_OpenScriptures.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\HebrewStrong_OpenScriptures.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\1Chr.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\1Kgs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\1Sam.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\2Chr.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\2Kgs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\2Sam.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Amos.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Dan.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Deut.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Eccl.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Esth.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Exod.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Ezek.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Ezra.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Gen.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Hab.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Hag.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Hos.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Isa.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Jer.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Job.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Joel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Jonah.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Josh.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Judg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Lam.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Lev.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Mal.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Mic.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Nah.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Neh.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Num.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Obad.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Prov.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Ps.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Ruth.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Song.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\VerseMap.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Zech.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\Leningrad Codex\Zeph.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\OpenScriptures\LexicalIndex_OpenScriptures.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\StrongHebrew.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data\Conjugation\Regular.xlsx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

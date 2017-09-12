@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="BibleReader.View.WordView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BibleReader.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Name="uxSpWordDetails" Orientation="Horizontal"  HorizontalAlignment="Center" Margin="5,0" TextBlock.Foreground="Maroon"/>
+        <TextBlock Grid.Row="1" Name="uxTbTheWord" Text="{Binding Text}" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

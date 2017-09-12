@@ -1,0 +1,42 @@
+BUGS:
+* Hebrew text is not only left-to-right, but also bottom to top!!!
+* Ruth 1:5 "Sheney-hem" - hovering shows info for the wrong word
+TO-DO
+Phase 0
+* Display form of verb (qal, etc)
+* When word is multi-part, display hebrew together with form of word in the hover
+* Rating system for words (0-4) 0 = never encountered, 4 = know forever (Like Gnusto). - Introduce SQLite
+* Store each encounter with a word (like, on such a date you've seen this word in this verse')
+* Indicator (e.g. colored rectangle/progress bar of frequency) - which words are more common / important
+* Backwards/forwards buttons like a browser
+* Derive title from most frequent translation
+* In hover, hilight the particular usage of the word, e.g. in Joel 1:14 - SANCTIFY
+
+Phase I
+3. In hovers, display root words
+4. When hovering, hilight same words on page
+8. Vocabulary list per chapter
+15. Color hebew words depending on part of speach, Gender
+
+Phase II
+5. Allow user to associate icons with words
+6. Get pronounciation files
+9. Draw arrows to related words
+17. Access alternate translations (via tool tip) eg Gen 2:5 - from where?
+18. Access Hebrew bible (i.e. Interlinear) and draw connecting lines
+20. Beginner mode where we replace hebrew with transliterations
+22. Distinguish OT vs NT books in margin selector
+24. Ctrl-F search capability
+28. Add Greek Lexicon - Downloaded, but not OSIS
+
+TO TEST
+
+DONE
+1. Punctuation is not always punctuations - so check (e.g. Gen 1:16)
+11. Make tool tips longer
+25. Horizontal margin on Verse Numbers
+2. Paragraphs need to stand out more
+16. Disallow wrapping on text blocks(?) - see Gen 2:4
+26. Add Icon
+18. Consider changing base font color for Hebrew (dark brown)
+23. Consider increasing size of Hebrew font relative to english since they already know English

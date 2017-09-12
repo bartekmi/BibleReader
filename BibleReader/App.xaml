@@ -1,0 +1,12 @@
+﻿<Application x:Class="BibleReader.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:wits.converter"
+             Startup="ApplicationStart">
+    <Application.Resources>
+        <converters:IEnumerableToVisibilityConverter x:Key="IEnumerableToVisibilityConverter"/>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <converters:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter"/>
+    </Application.Resources>
+</Application>

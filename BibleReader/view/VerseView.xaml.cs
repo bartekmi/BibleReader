@@ -25,8 +25,7 @@ namespace BibleReader.View {
             uxVerseMarkerView.SetVerse(verse);
 
             IEnumerable<Element> elements = verse.Words;
-            if (AppStatics.Singleton.Bible.IsRightToLeft)
-                elements = elements.Reverse();
+            uxWrapPanel.FlowDirection = AppStatics.Singleton.Bible.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
 
             foreach (Element element in elements) {
                 WordView wordView = element is ElementWord ?

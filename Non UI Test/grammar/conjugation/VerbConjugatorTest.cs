@@ -1,4 +1,6 @@
-﻿using BibleReader.model;
+﻿using BibleReader.DataSource;
+using BibleReader.model;
+using BibleReader.model.enums;
 using BibleReader.utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -11,9 +13,39 @@ namespace BibleReader.grammar.conjugation {
     [TestClass]
     public class VerbConjugatorTest {
 
-        [TestMethod]
-        public void TestRegExUsage() {
+        private VerbConjugator _conjugator = new VerbConjugator();
 
+        [TestInitialize]
+        public void TestInitialize() {
+            new AppStaticsNonUI() {
+                CurrentLexison = new Lexicon(),
+            };
+        }
+
+        [TestMethod]
+        public void TestConjugateRegular() {
+
+            AppStaticsNonUI.Singleton.CurrentLexison.AddEntry(new LexiconWordDefinition() {
+                StrongsNumber = "H1254",
+                OriginalLanguage = "בּרא",
+                PartOfSpeech = PartOfSpeech.Verb,
+            });
+
+            ElementWord verb = new ElementWord(null) {
+                Text = "בָּרָא",
+                StrongsNumbers = new string[] {"H1254"},
+            };
+
+            VerbConjugationEntry conjugation = _conjugator.IdentifyConjugation(verb);
+
+            Assert.IsNotNull(conjugation);
+
+            Assert.AreEqual(VerbConjugationFamily.II_Guttural, conjugation.Family);
+            Assert.AreEqual(VerbForm.Perfect, conjugation.Form);
+            Assert.AreEqual(Gender.Masculine, conjugation.Gender);
+            Assert.AreEqual(Number.Singular, conjugation.Number);
+            Assert.AreEqual(Person.Third, conjugation.Person);
+            Assert.AreEqual(VerbStem.Qal, conjugation.Stem);
         }
     }
 }

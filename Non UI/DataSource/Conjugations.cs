@@ -22,6 +22,10 @@ namespace BibleReader.DataSource {
         public Number Number;
         public string Text;
         public Letter[] Letters;
+
+        public override string ToString() {
+            return string.Format("{0} {1} {2} {3} {4}", Stem, Form, Person, Gender, Number);
+        }
     }
 
     public class Conjugations {
@@ -31,11 +35,13 @@ namespace BibleReader.DataSource {
         private CellIndex _range;
 
         public Conjugations() {
-            foreach (string name in new string[] { "Regular" }) {
-                string resourceName = string.Format("BibleReader.data.Conjugation.{0}.xlsx", name);
+            foreach (VerbConjugationFamily family in new VerbConjugationFamily[] {
+                VerbConjugationFamily.Regular,
+                VerbConjugationFamily.II_Guttural,
+            }) {
+                string resourceName = string.Format("BibleReader.data.Conjugation.{0}.xlsx", family);
                 XlsxFormatProvider formatter = new XlsxFormatProvider();
                 Workbook workbook = formatter.Import(ResourceUtils.ReadEmbeddedResource(resourceName));
-                VerbConjugationFamily family = EnumUtils.Parse<VerbConjugationFamily>(name);
                 Sheet sheet = workbook.Sheets.First();
                 _data[family] = ReadSheet(family, (Worksheet)sheet);
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BibleReader.model;
+using BibleReader.model.enums;
 
 namespace BibleReader.utils {
 
@@ -67,12 +68,12 @@ namespace BibleReader.utils {
         #endregion
 
         #region Other Methods
-        internal static bool AreSame(Letter[] a, Letter[] b) {
+        internal static bool AreSame(Letter[] a, Letter[] b, bool isStrict) {
             if (a.Length != b.Length)
                 return false;
 
             for (int ii = 0; ii < a.Length; ii++)
-                if (!a[ii].Equals(b[ii]))
+                if (!a[ii].Equals(b[ii], isStrict))
                     return false;
 
             return true;

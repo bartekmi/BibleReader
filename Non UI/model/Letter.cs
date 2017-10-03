@@ -1,4 +1,5 @@
 ﻿using BibleReader.utils;
+using BibleReader.model.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,70 +48,6 @@ namespace BibleReader.model {
         Tav = 0x5ea,
     }
 
-    public enum HAnnotation {
-        // 0x59x
-        AccentEtnahta = 0x591,
-        AccentSegol = 0x592,
-        AccentShalshelet = 0x593,
-        AccentZaqefQatan = 0x594,
-        AccentZeqefGadol = 0x595,
-        AccentTipeha = 0x596,
-        AccentRevia = 0x597,
-        AccentZarqa = 0x598,
-        AccentPashta = 0x599,
-        AccentYetiv = 0x59a,
-        AccentTevir = 0x59b,
-        AccentGeresh = 0x59c,
-        AccentGereshMuqdam = 0x59d,
-        AccentGereshaim = 0x59e,
-        AccentQarneyPara = 0x59f,
-
-        // 0x5ax
-        AccentTelishaGedola = 0x5a0,
-        AccentPazer = 0x5a1,
-        AccentAtnahHafukh = 0x5a2,
-        AccentMunah = 0x5a3,
-        AccentMahapakh = 0x5a4,
-        AccentMerkha = 0x5a5,
-        AccentMerkhaKefula = 0x5a6,
-        AccentDarga = 0x5a7,
-        AccentQadmah = 0x5a8,
-        AccentTelishaQetana = 0x5a9,
-        AccentYerahBenYomo = 0x5aa,
-        AccentOle = 0x5ab,
-        AccentIluy = 0x5ac,
-        AccentDehi = 0x5ad,
-        AccentZinor = 0x5ae,
-        MarkMesoraCircle = 0x5af,
-
-        // 0x5bx
-        PointSheva = 0x5b0,
-        PointHatafSegol = 0x5b1,
-        PointHatafPatah = 0x5b2,
-        PointHatafQamats = 0x5b3,
-        PointHiriq = 0x5b4,
-        PointTsere = 0x5b5,
-        PointSegol = 0x5b6,
-        PointPatah = 0x5b7,
-        PointQamats = 0x5b8,
-        PointHolam = 0x5b9,
-        PointHolamHaserForVav = 0x5ba,
-        PointQubuts = 0x5bb,
-        PointDageshOrMapiq = 0x5bc,
-        PointMeteg = 0x5bd,
-        // Note that 0x5be is Maqaf, which is in the Punctuation enum
-        PointRafe = 0x5bf,
-
-        // 0x5cx
-        // Note that 0x5c0 is Paseq, which is in the Punctuation enum
-        PointShinDot = 0x5c1,
-        PointSinDot = 0x5c2,
-
-        MarkUpperDot = 0x5c4,
-        MarkLowerDot = 0x5c5,
-        PointQamatsQatan = 0x5c7,
-    }
-
     public enum LetterHasVowel {
         Yes,
         No,
@@ -119,6 +56,7 @@ namespace BibleReader.model {
 
     public class Letter {
 
+        #region Properties
         public HLetter TheLetter { get; set; }
         public HAnnotation[] Annotations { get; set; }
 
@@ -228,21 +166,65 @@ namespace BibleReader.model {
                 }
             }
         }
+        #endregion
 
+        #region Constructors
         public Letter(HLetter letter, params HAnnotation[] annotations) {
             TheLetter = letter;
             Annotations = annotations;
         }
 
+        // Copy constructor
+        public Letter(Letter letter) {
+            TheLetter = letter.TheLetter;
+            Annotations = new List<HAnnotation>(letter.Annotations).ToArray();
+        }
+        #endregion
+
+        #region Utilities
+
+        public HAnnotation? GetVowel() {
+            HAnnotation vowel = Annotations.SingleOrDefault(x => HAnnotationHelper.IsVowel(x));
+            if ((int)vowel == 0)
+                return null;
+            return vowel;
+        }
+
+        public void ReplaceVowel(HAnnotation newVowel) {
+            HAnnotation? originalVowel = GetVowel();
+            if (originalVowel == null)
+                Annotations = Annotations.Concat(new HAnnotation[] { newVowel }).ToArray();
+            else {
+                int index = Annotations.ToList().IndexOf(originalVowel.Value);
+                Annotations[index] = newVowel;
+            }
+        }
+        #endregion
+
+        #region Equals
         public override bool Equals(object obj) {
             Letter other = (Letter)obj;
+            return Equals(other, true);
+        }
+
+        public bool Equals(Letter other, bool isStrict) {
             if (TheLetter != other.TheLetter)
                 return false;
             if (Annotations.Length != other.Annotations.Length)
                 return false;
 
-            HAnnotation[] these = Annotations.OrderBy(x => x).ToArray();
-            HAnnotation[] those = Annotations.OrderBy(x => x).ToArray();
+            if (isStrict)
+                return AreAnnotationsEqualStrict(Annotations, other.Annotations);
+            else
+                return AreAnnotationsEqualLax(Annotations, other.Annotations);
+        }
+
+        private static bool AreAnnotationsEqualStrict(HAnnotation[] one, HAnnotation[] two) {
+            HAnnotation[] these = one.OrderBy(x => x).ToArray();
+            HAnnotation[] those = two.OrderBy(x => x).ToArray();
+
+            if (these.Length != those.Length)
+                return false;
 
             for (int ii = 0; ii < these.Length; ii++)
                 if (these[ii] != those[ii])
@@ -250,6 +232,32 @@ namespace BibleReader.model {
 
             return true;
         }
+
+        private static bool AreAnnotationsEqualLax(HAnnotation[] one, HAnnotation[] two) {
+            HAnnotation[] oneNonVowels = one.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
+            HAnnotation[] twoNonVowels = one.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
+
+            if (!AreAnnotationsEqualStrict(oneNonVowels, twoNonVowels))
+                return false;
+
+            HAnnotation oneVowel = one.SingleOrDefault(x => HAnnotationHelper.IsVowel(x));
+            HAnnotation twoVowel = two.SingleOrDefault(x => HAnnotationHelper.IsVowel(x));
+
+            // An exact match on the vowel
+            if (oneVowel == twoVowel)
+                return true;
+
+            // The two vowels belong to the same equivalent set
+            foreach (HAnnotation[] set in INTERCHANGEABLE_VOWELS_SETS)
+                if (set.Contains(oneVowel) && set.Contains(twoVowel))
+                    return true;
+
+            return false;
+        }
+
+        private static readonly HAnnotation[][] INTERCHANGEABLE_VOWELS_SETS = new HAnnotation[][] {
+            new HAnnotation[] { HAnnotation.PointPatah, HAnnotation.PointQamats }
+        };
 
         public override int GetHashCode() {
             List<int> list = new List<int>(Annotations.Select(x => (int)x).OrderBy(x => x));
@@ -261,7 +269,9 @@ namespace BibleReader.model {
 
             return hash;
         }
+        #endregion
 
+        #region ToString()
         public override string ToString() {
             StringBuilder builder = new StringBuilder();
 
@@ -273,5 +283,6 @@ namespace BibleReader.model {
 
             return builder.ToString();
         }
+        #endregion
     }
 }

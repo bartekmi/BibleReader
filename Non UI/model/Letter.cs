@@ -210,10 +210,8 @@ namespace BibleReader.model {
         public bool Equals(Letter other, bool isStrict) {
             if (TheLetter != other.TheLetter)
                 return false;
-            if (Annotations.Length != other.Annotations.Length)
-                return false;
 
-            if (isStrict)
+            if (isStrict) 
                 return AreAnnotationsEqualStrict(Annotations, other.Annotations);
             else
                 return AreAnnotationsEqualLax(Annotations, other.Annotations);
@@ -234,11 +232,15 @@ namespace BibleReader.model {
         }
 
         private static bool AreAnnotationsEqualLax(HAnnotation[] one, HAnnotation[] two) {
-            HAnnotation[] oneNonVowels = one.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
-            HAnnotation[] twoNonVowels = one.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
+            // The problem with this is that silly things like accents cause differences. However, what about more
+            // significant things like Shin-Dot and Dagesh? Can't think of a situation where this would make a difference
+            // to conjugation, though.
 
-            if (!AreAnnotationsEqualStrict(oneNonVowels, twoNonVowels))
-                return false;
+            //HAnnotation[] oneNonVowels = one.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
+            //HAnnotation[] twoNonVowels = two.Where(x => !HAnnotationHelper.IsVowel(x)).ToArray();
+
+            //if (!AreAnnotationsEqualStrict(oneNonVowels, twoNonVowels))
+            //    return false;
 
             HAnnotation oneVowel = one.SingleOrDefault(x => HAnnotationHelper.IsVowel(x));
             HAnnotation twoVowel = two.SingleOrDefault(x => HAnnotationHelper.IsVowel(x));

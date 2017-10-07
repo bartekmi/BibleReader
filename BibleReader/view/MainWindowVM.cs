@@ -56,6 +56,7 @@ namespace BibleReader.View {
 
                 _selectedBook = value;
                 Chapters = value.Chapters;
+                SelectedChapter = Chapters.First();
 
                 RaisePropertyChanged(() => Chapters);
                 RaisePropertyChanged(() => SelectedBook);

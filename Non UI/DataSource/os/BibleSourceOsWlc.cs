@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using BibleReader.model.conjugation;
+using BibleReader.utils;
 
 namespace BibleReader.DataSource.os {
     public class BibleSourceOsWlc : BibleSource {
@@ -155,9 +156,11 @@ namespace BibleReader.DataSource.os {
             word.RawStrongsNumberWithMarkings = strongsRaw;
             word.Text = xml.InnerText;
 
-            XmlAttribute morphology = xml.Attributes["morph"];
-            if (morphology != null)
-                word.Conjugations = ExtractConjugation(morphology.Value);
+            if (ConfigUtils.GetMandatory<bool>("UseExistingConjugation")) {
+                XmlAttribute morphology = xml.Attributes["morph"];
+                if (morphology != null)
+                    word.Conjugations = ExtractConjugation(morphology.Value);
+            }
         }
 
         private string CleanseStrongs(string strongsRaw) {

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BibleReader.model.enums;
+using BibleReader.model.conjugation;
 
 namespace BibleReader.grammar.conjugation {
     public class VerbConjugator {
-        public VerbConjugationEntry IdentifyConjugation(ElementWord verb) {
+        public List<VerbConjugation> IdentifyConjugation(ElementWord verb) {
             if (verb.Definitions.Length != 1)
                 throw new Exception("Expecting exactly one definition for word " + verb);
 
@@ -18,37 +19,51 @@ namespace BibleReader.grammar.conjugation {
             if (definition.PartOfSpeech != PartOfSpeech.Verb)
                 throw new Exception("Must be a verb");
 
+            List<VerbConjugation> conjugations = new List<VerbConjugation>();
             Letter[] rootLetters = definition.Letters;
             Letter[] wordLetters = verb.Letters;
             List<VerbConjugationFamily> families = DetermineConjugationFamilies(rootLetters);
 
             foreach (VerbConjugationFamily family in families) {
-                VerbConjugationEntry conjugation = Conjugate(wordLetters, rootLetters, family);
-                if (conjugation != null)
-                    return conjugation;
+                List<VerbConjugationEntry> familyConjugations = Conjugate(wordLetters, rootLetters, family);
+                conjugations.AddRange(familyConjugations.Select(x => x.CreateConjugation()));
             }
 
-            return null;
+            return conjugations;
         }
 
-        private VerbConjugationEntry Conjugate(Letter[] wordLetters, Letter[] wordRoot, VerbConjugationFamily family) {
+        private List<VerbConjugationEntry> Conjugate(Letter[] wordLetters, Letter[] wordRoot, VerbConjugationFamily family) {
             List<VerbConjugationEntry> conjugations = AppStaticsNonUI.Singleton.Conjugations.Get(family);
-            VerbConjugationEntry qal3msg = conjugations.Single(x => x.Stem == VerbStem.Qal && x.Person == Person.Third && x.Gender == Gender.Masculine && x.Number == Number.Singular);
-            Letter[] paradigmRoot = qal3msg.Letters;
+            if (conjugations == null)
+                return null;
+
+            List<VerbConjugationEntry> results = new List<VerbConjugationEntry>();
+            VerbConjugationEntry qal3msg = conjugations.Single(x => 
+                x.Stem == VerbStem.Qal && 
+                x.Form == VerbForm.Perfect &&
+                x.Person == Person.Third && 
+                x.Gender == Gender.Masculine && 
+                x.Number == Number.Singular);
+
+            Letter[] paradigmRoot = qal3msg.Letters.Single();
 
             foreach (VerbConjugationEntry conjugation in conjugations) {
-                if (wordRoot.Length != paradigmRoot.Length)       // Can't possibly match because paradigm root and word root are different length
-                    continue;
+                foreach (Letter[] letters in conjugation.Letters) {     // On rare occasion, there are alternative spellings for the same conjugation
+                    if (wordRoot.Length != paradigmRoot.Length)       // Can't possibly match because paradigm root and word root are different length
+                        continue;
 
-                Letter[] expansion = Expand(wordRoot, paradigmRoot, conjugation.Letters);
-                if (HebrewTextConversionUtils.AreSame(expansion, wordLetters, false))
-                    return conjugation;
+                    Letter[] expansion = Expand(wordRoot, paradigmRoot, letters);
+                    if (HebrewTextConversionUtils.AreSame(expansion, wordLetters, false)) {
+                        results.Add(conjugation);
+                        break;
+                    }
+                }
             }
 
-            return null;
+            return results;
         }
 
-        private Letter[] Expand(Letter[] wordRoot /* בָּרָא */, Letter[] paradigmRoot /* פָקַד */, Letter[] paradigmConjugation /* פָּקַדְתָּ */) {
+        private Letter[] Expand(Letter[] wordRoot /* בּרא */, Letter[] paradigmRoot /* פָקַד */, Letter[] paradigmConjugation /* פָּקַדְתָּ */) {
 
             List<Letter> expanded = new List<Letter>();
 
@@ -76,13 +91,14 @@ namespace BibleReader.grammar.conjugation {
 
             List<VerbConjugationFamily> families = new List<VerbConjugationFamily>();
 
+            // If multiple families are returned, it should always be ordered from specific to general
             if (root.Length == 2)
                 families.Add(VerbConjugationFamily.Hollow);
 
-            if (root[0].IsGuttural)
-                families.Add(VerbConjugationFamily.I_Guttural);
             if (root[0].TheLetter == HLetter.Aleph)
                 families.Add(VerbConjugationFamily.I_Aleph);
+            if (root[0].IsGuttural)
+                families.Add(VerbConjugationFamily.I_Guttural);
             if (root[1].IsGuttural)
                 families.Add(VerbConjugationFamily.II_Guttural);
             if (root[1].TheLetter == HLetter.Nun)

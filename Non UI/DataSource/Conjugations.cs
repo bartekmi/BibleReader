@@ -10,6 +10,7 @@ using BibleReader.utils;
 using Telerik.Windows.Documents.Spreadsheet.Formatting.FormatStrings;
 using BibleReader.model;
 using BibleReader.model.enums;
+using BibleReader.model.conjugation;
 
 namespace BibleReader.DataSource {
 
@@ -21,10 +22,21 @@ namespace BibleReader.DataSource {
         public Gender Gender;
         public Number Number;
         public string Text;
-        public Letter[] Letters;
+        public Letter[][] Letters;
 
         public override string ToString() {
-            return string.Format("{0} {1} {2} {3} {4}", Stem, Form, Person, Gender, Number);
+            return string.Format("{0} {1} {2} {3} {4} {5}", Stem, Form, Person, Gender, Number, Family);
+        }
+
+        internal VerbConjugation CreateConjugation() {
+            return new VerbConjugation() {
+                Family = Family,
+                Stem = Stem,
+                Form = Form,
+                Person = Person,
+                Gender = Gender,
+                Number = Number,
+            };
         }
     }
 
@@ -48,7 +60,9 @@ namespace BibleReader.DataSource {
         }
 
         public List<VerbConjugationEntry> Get(VerbConjugationFamily family) {
-            return _data[family];
+            List<VerbConjugationEntry> entries;
+            _data.TryGetValue(family, out entries);
+            return entries;
         }
 
         private List<VerbConjugationEntry> ReadSheet(VerbConjugationFamily family, Worksheet sheet) {
@@ -79,6 +93,8 @@ namespace BibleReader.DataSource {
                     if (string.IsNullOrWhiteSpace(text))
                         continue;
 
+                    string[] pieces = text.Split(',');
+
                     data.Add(new VerbConjugationEntry() {
                         Family = family,
                         Stem = stems[iCol - 2],
@@ -87,7 +103,7 @@ namespace BibleReader.DataSource {
                         Gender = gender,
                         Number = number,
                         Text = text,
-                        Letters = HebrewTextConversionUtils.Extract(text),
+                        Letters = pieces.Select(x => HebrewTextConversionUtils.Extract(x.Trim())).ToArray(),
                     });
                 }
             }

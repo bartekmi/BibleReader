@@ -1,5 +1,6 @@
 ﻿using BibleReader.DataSource;
 using BibleReader.model;
+using BibleReader.model.conjugation;
 using BibleReader.model.enums;
 using BibleReader.utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -32,11 +33,11 @@ namespace BibleReader.grammar.conjugation {
             });
 
             ElementWord verb = new ElementWord(null) {
-                Text = "בָּרָא",
+                Text = "בָּרָ֣א",
                 StrongsNumbers = new string[] {"H1254"},
             };
 
-            VerbConjugationEntry conjugation = _conjugator.IdentifyConjugation(verb);
+            VerbConjugation conjugation = _conjugator.IdentifyConjugation(verb).Single();
 
             Assert.IsNotNull(conjugation);
 

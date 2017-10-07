@@ -22,7 +22,8 @@ namespace BibleReader.model.conjugation {
 
             foreach (PropertyInfo property in this.GetType().GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)) {
                 object value = property.GetValue(this);
-                builder.AppendLine(string.Format("{0}: {1}", property.Name, value));
+                if (value != null)
+                    builder.AppendLine(string.Format("{0}: {1}", property.Name, value));
             }
 
             return builder.ToString().Trim();

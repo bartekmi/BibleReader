@@ -1,4 +1,5 @@
-﻿using BibleReader.model.conjugation;
+﻿using BibleReader.grammar.conjugation;
+using BibleReader.model.conjugation;
 using BibleReader.model.enums;
 using BibleReader.utils;
 using System;
@@ -13,7 +14,18 @@ namespace BibleReader.model {
         public string[] StrongsNumbers { get; set; }
         public string RawStrongsNumberWithMarkings { get; set; }
 
-        public ConjugationBase[] Conjugations { get; set; }
+        private ConjugationBase[] _conjugations;
+        public ConjugationBase[] Conjugations {
+            get {
+                if (ConfigUtils.GetMandatory<bool>("CacheConjugations")) {
+                    if (_conjugations == null)
+                        _conjugations = Conjugator.Conjugate(this);
+                    return _conjugations;
+                } else
+                    return Conjugator.Conjugate(this);
+            }
+            set { _conjugations = value; }
+        }
 
         // Derived Properties
         public LexiconWordDefinition[] Definitions {
@@ -36,7 +48,7 @@ namespace BibleReader.model {
         private Letter[] _letters;
         public Letter[] Letters {
             get {
-                if (_letters == null) 
+                if (_letters == null)
                     _letters = HebrewTextConversionUtils.Extract(Text);
                 return _letters;
             }
